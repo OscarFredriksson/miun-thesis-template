@@ -1,0 +1,141 @@
+\documentclass[a4paper, titlepage, 12pt]{article}
+\usepackage[margin=3.7cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage[swedish]{babel}
+\usepackage{csquotes}
+\usepackage[hyphens]{url}
+\usepackage{amsmath,amssymb,amsthm, amsfonts}
+\usepackage[backend=biber,citestyle=ieee]{biblatex}
+\usepackage{algorithm}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{newfloat}
+\usepackage{varioref, prettyref}
+\usepackage{hyperref, cleveref}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{tocloft}
+\usepackage[yyyymmdd]{datetime}
+\usepackage[table]{xcolor}
+\usepackage[export]{adjustbox}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{enumitem}
+%\usepackage{subfig}
+\usepackage{dirtree}
+\usepackage{makecell}
+\usepackage{hyphenat}
+\usepackage{array}
+\usepackage{listings}
+\usepackage[font={small,it}, width=0.75\textwidth]{caption}
+\usepackage[titletoc, title]{appendix}
+\usepackage{seqsplit}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage[acronym,nogroupskip,nonumberlist,nopostdot,toc]{glossaries}
+
+\renewcommand{\dateseparator}{--}
+
+\addbibresource{sources.bib}
+
+%To follow Miun Template
+\usepackage{mathpazo} %Set Palatino as main font
+\usepackage{verbatimbox}
+
+\usepackage{titlesec}
+\usepackage{helvet}
+\definecolor{thesisyellow}{HTML}{FFE500}  
+\definecolor{thesisblue}{HTML}{0078BE} 
+\usepackage{tikz}
+
+\titleformat{\section}
+  {\sffamily\LARGE\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\sffamily\Large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\sffamily\large\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+  {\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
+
+% \addto\captionsenglish{
+ \renewcommand{\contentsname}
+   {Table of Contents}
+% }
+
+\DeclareFloatingEnvironment[placement={!ht},name=List]{mylist}
+
+\usepackage{etoolbox}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\newcommand{\paddedtable}[2]{\renewcommand{\arraystretch}{#1}
+\begin{table}[H]\footnotesize\centering #2 \end{table}}
+
+\newcommand{\getauthor}{Author} %Author
+\newcommand{\gettitle}{Title} %Title
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+    \include{titlepage}
+    \fontfamily{ppl}
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[LH]{\gettitle \\\getauthor}
+    \fancyhead[RH]{\today}
+    \fancyfoot[C]{\thepage}
+    \setlength{\headheight}{43pt}
+    \pagenumbering{roman}
+    
+    \include{00-abstract}
+    \newpage
+    \include{00-acknowledgements}
+    \newpage
+    \tableofcontents
+    \newpage
+    
+    % \phantomsection
+    % \listoffigures
+    % \addcontentsline{toc}{section}{List of Figures}
+    % \newpage
+    
+    % \phantomsection
+    % \listoftables
+    % \addcontentsline{toc}{section}{List of Tables}
+    % \newpage
+    
+    % \phantomsection
+    % \listofalgorithms
+    % \addcontentsline{toc}{section}{Algoritmer}
+    % \newpage
+    
+    \pagenumbering{arabic}
+    \include{00-terminology}
+    \include{01-introduction}
+    \include{02-theory}
+    \include{03-methodology}
+    \include{04-implementation}
+    \include{05-results}
+    \include{06-conclusions}
+
+    \printbibliography
+    \newpage
+    \pagestyle{empty}
+    
+    \pagestyle{fancy}
+    \appendix
+    \noappendicestocpagenum
+    \setcounter{page}{1}
+
+    \counterwithin{figure}{section}
+    \counterwithin{table}{section}
+
+
+    \begin{appendices}
+      \include{appendices/source-code}
+    \end{appendices}
+
+\end{document}
