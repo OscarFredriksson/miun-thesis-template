@@ -70,6 +70,22 @@
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codepurple}{rgb}{0.5,0,0.5}
+\definecolor{backcolor}{rgb}{0.97,0.97,0.97}
+\lstdefinestyle{mystyle}{
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\color{gray}\ttfamily\footnotesize,
+	backgroundcolor=\color{backcolor},
+	basicstyle=\ttfamily\footnotesize,
+	stringstyle=\color{codepurple},
+	numbers=left,
+	tabsize=4
+}
+\lstset{style=mystyle}
+
 \newcommand{\paddedtable}[2]{\renewcommand{\arraystretch}{#1}
 \begin{table}[H]\footnotesize\centering #2 \end{table}}
 
